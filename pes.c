@@ -43,7 +43,7 @@ int cmd_init(int argc, char **argv) {
     printf("Initialized empty PES repository in .pes/\n");
     return 0;
 }
-
+// implemented object_write for atomic object_writing
 int cmd_add(int argc, char **argv) {
     if (argc < 2) {
         fprintf(stderr, "usage: pes add <file>...\n");
