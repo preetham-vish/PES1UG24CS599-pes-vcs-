@@ -100,7 +100,7 @@ int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out
     free(full_data);
     return 0;
 }
-
+// object read implementation 
 int object_read(const ObjectID *id, ObjectType *type_out, void **data_out, size_t *len_out) {
     char path[512];
     object_path(id, path, sizeof(path));
