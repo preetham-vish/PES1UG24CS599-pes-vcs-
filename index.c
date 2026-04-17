@@ -147,7 +147,7 @@ int index_load(Index *index) {
     return 0;
 }
 
-// sorted serialization
+//    sorted serialization
 int index_save(const Index *index) {
     if (index->count == 0) return 0;
 
