@@ -19,6 +19,7 @@
 
 // ─── PROVIDED ────────────────────────────────────────────────────────────────
 // core loading 
+// management helper function 
 IndexEntry* index_find(Index *index, const char *path) {
     for (int i = 0; i < index->count; i++) {
         if (strcmp(index->entries[i].path, path) == 0)
@@ -27,6 +28,7 @@ IndexEntry* index_find(Index *index, const char *path) {
     return NULL;
 }
 
+// management helper function
 int index_remove(Index *index, const char *path) {
     for (int i = 0; i < index->count; i++) {
         if (strcmp(index->entries[i].path, path) == 0) {
