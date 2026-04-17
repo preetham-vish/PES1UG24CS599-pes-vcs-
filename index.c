@@ -188,6 +188,7 @@ int index_save(const Index *index) {
     return 0;
 }
 
+// /staging mechanics in index_add
 int index_add(Index *index, const char *path) {
     FILE *f = fopen(path, "rb");
     if (!f) { 
