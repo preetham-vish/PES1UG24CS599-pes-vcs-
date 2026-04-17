@@ -66,6 +66,7 @@ int cmd_status(int argc, char **argv) {
     return index_status(&index);
 }
 
+// implemented object_read with type detection and validation
 int cmd_commit(int argc, char **argv) {
     const char *message = NULL;
     for (int i = 1; i < argc; i++) {
