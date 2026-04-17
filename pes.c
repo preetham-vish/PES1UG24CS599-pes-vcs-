@@ -9,7 +9,7 @@
 #include <time.h> // FIX: Added to resolve implicit declaration of ctime
 
 // ─── CALLBACK ───────────────────────────────────────────────────────────────
-
+// implemented hash function and other utils
 // FIX: Changed return type to void to match commit_walk_fn in commit.h
 void log_print_callback(const ObjectID *id, const Commit *c, void *ctx) {
     (void)ctx;
