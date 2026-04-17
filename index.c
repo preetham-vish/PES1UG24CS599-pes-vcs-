@@ -42,6 +42,7 @@ int index_remove(Index *index, const char *path) {
     return -1;
 }
 
+// status reporting implementation
 int index_status(const Index *index) {
     printf("Staged changes:\n");
     int staged_count = 0;
