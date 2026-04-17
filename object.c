@@ -12,7 +12,6 @@
 #define OBJECTS_DIR ".pes/objects"
 #endif
 
-// CAS implementation
 void compute_hash(const void *data, size_t len, ObjectID *id_out) {
     SHA256((const unsigned char *)data, len, id_out->hash);
 }
@@ -38,7 +37,7 @@ void object_path(const ObjectID *id, char *path_out, size_t size) {
     hash_to_hex(id, hex);
     snprintf(path_out, size, "%s/%.2s/%s", OBJECTS_DIR, hex, hex + 2);
 }
-        // implemented object write
+
 int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out) {
     const char *type_str = "";
     if (type == OBJ_BLOB) type_str = "blob";
@@ -100,7 +99,7 @@ int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out
     free(full_data);
     return 0;
 }
-// object read implementation 
+
 int object_read(const ObjectID *id, ObjectType *type_out, void **data_out, size_t *len_out) {
     char path[512];
     object_path(id, path, sizeof(path));
@@ -164,4 +163,3 @@ int object_read(const ObjectID *id, ObjectType *type_out, void **data_out, size_
     free(buf);
     return 0;
 }
-

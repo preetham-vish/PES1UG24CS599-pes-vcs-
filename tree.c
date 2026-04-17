@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include "index.h"
 
-// defined mode constants
+// ─── Mode Constants ─────────────────────────────────────────────────────────
 
 #define MODE_FILE      0100644
 #define MODE_EXEC      0100755
@@ -25,7 +25,6 @@
 
 // ─── PROVIDED ───────────────────────────────────────────────────────────────
 
-// tree entry struct has been defined and Tree struct 
 uint32_t get_file_mode(const char *path) {
     struct stat st;
     if (lstat(path, &st) != 0) return 0;
@@ -35,7 +34,6 @@ uint32_t get_file_mode(const char *path) {
     return MODE_FILE;
 }
 
-// implemented tree_parse
 int tree_parse(const void *data, size_t len, Tree *tree_out) {
     tree_out->count = 0;
     const uint8_t *ptr = (const uint8_t *)data;
@@ -78,7 +76,6 @@ static int compare_tree_entries(const void *a, const void *b) {
     return strcmp(((const TreeEntry *)a)->name, ((const TreeEntry *)b)->name);
 }
 
-// implemeneted serialize interface 
 int tree_serialize(const Tree *tree, void **data_out, size_t *len_out) {
     size_t max_size = tree->count * 296; 
     uint8_t *buffer = malloc(max_size);
@@ -171,7 +168,6 @@ static int write_tree_level(IndexEntry *entries, int count, int depth, ObjectID 
     return rc;
 }
 
-// recursive logic prototypes
 int tree_from_index(ObjectID *id_out) {
     Index index;
     index.count = 0;
