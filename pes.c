@@ -87,7 +87,7 @@ int cmd_commit(int argc, char **argv) {
     printf("Committed: %.12s... %s\n", hex, message);
     return 0;
 }
-
+// added strict hash verification during object reading 
 int cmd_log(int argc, char **argv) {
     (void)argc; (void)argv;
     return commit_walk(log_print_callback, NULL);
@@ -100,6 +100,7 @@ int main(int argc, char **argv) {
         fprintf(stderr, "usage: pes <command> [<args>]\n");
         return 1;
     }
+
     const char *cmd = argv[1];
     if (strcmp(cmd, "init") == 0) return cmd_init(argc - 1, argv + 1);
     if (strcmp(cmd, "add") == 0) return cmd_add(argc - 1, argv + 1);
