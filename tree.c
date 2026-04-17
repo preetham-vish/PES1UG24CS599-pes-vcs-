@@ -171,6 +171,7 @@ static int write_tree_level(IndexEntry *entries, int count, int depth, ObjectID 
     return rc;
 }
 
+// recursive logic prototypes
 int tree_from_index(ObjectID *id_out) {
     Index index;
     index.count = 0;
