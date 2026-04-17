@@ -25,6 +25,7 @@ void log_print_callback(const ObjectID *id, const Commit *c, void *ctx) {
     printf("\n    %s\n\n", c->message);
 }
 
+implemented path calculation
 // ─── COMMAND HANDLERS ───────────────────────────────────────────────────────
 
 int cmd_init(int argc, char **argv) {
